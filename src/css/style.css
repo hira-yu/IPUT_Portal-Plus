@@ -1,0 +1,56 @@
+.portalp_sort_btn {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    padding: 0px 20px 0px 4px;
+    --triangle_up_visibility: '';
+    --triangle_down_visibility: '';
+}
+
+.portalp_sort_btn::before {
+    content: var( --triangle_up_visibility );
+    width: 6px;
+    height: 6px;
+    border: 0;
+    border-top: solid 2px #333;
+    border-right: solid 2px #333;
+    border-color: #3D3D3D;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 0;
+    right: 5px;
+    bottom: 4px;
+    margin: auto;
+}
+.portalp_sort_btn::after {
+    content: var( --triangle_down_visibility );
+    width: 6px;
+    height: 6px;
+    border: 0;
+    border-bottom: solid 2px #333;
+    border-right: solid 2px #333;
+    border-color: #3D3D3D;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    bottom: 0;
+    margin: auto;
+}
+
+.portalp_visible {
+    visibility: visible;
+}
+.portalp_visible + tr {
+    visibility: visible;
+}
+
+.portalp_hidden {
+    visibility: collapse;
+}
+.portalp_hidden + tr {
+    visibility: collapse;
+}
