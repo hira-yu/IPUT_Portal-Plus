@@ -54,3 +54,19 @@
 .portalp_hidden + tr {
     visibility: collapse;
 }
+
+.portalp_caution {
+    background-color: rgba( 242, 231, 0, 0.2 );
+}
+
+.portalp_warning {
+    background-color: rgba( 246, 170, 0, 0.2 );
+}
+
+.portalp_alert {
+    background-color: rgba( 255, 75, 0, 0.2 );
+}
+
+.portalp_fail {
+    opacity: 0.4;
+}

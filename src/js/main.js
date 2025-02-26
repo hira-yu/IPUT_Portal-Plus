@@ -10,9 +10,11 @@ window.addEventListener( "load", function( ) {
     if( document.querySelector("#title > h2").innerText == "成績照会" ) {
         if( document.querySelector("#tabnavigation_list > ul > li.active").innerText == "成績" ) {
             portalp_add_menu( 0 );
+            portalp_color_map( 10 );
 
         } else if( document.querySelector("#tabnavigation_list > ul > li.active").innerText == "出席" ) {
             portalp_add_menu( 1 );
+            portalp_color_map( 4 );
         }
     }
 });
@@ -105,13 +107,13 @@ function portalp_btn_click( e ) {
 
 function portalp_sort_semester( ) {
     var selector = 0;
-    var table = document.querySelectorAll( "#changeArea > div:nth-child(5) > table > tbody > tr" );
+    var table = document.querySelectorAll( "#changeArea > div > table > tbody > tr" );
 
     document.querySelectorAll( ".portalp_chkbtn:checked" ).forEach( function( element ) {
         selector += parseInt( element.value );
     });
 
-    for( var i = 2; i < table.length - 1; i+=2 ) {
+    for( var i = 2; i < table.length - 1; i += 2 ) {
         table[ i ].classList.add( "portalp_visible" );
         table[ i ].classList.remove( "portalp_hidden" );
 
@@ -230,5 +232,26 @@ function portalp_display( length, data, line ) {
     for( var i = 0; i < length; i++ ) {
         document.querySelector( `#changeArea > div > table > tbody > tr:nth-child(${ i * 2 + 2 })` ).after( data[ i ].dom );
         document.querySelector( `#changeArea > div > table > tbody > tr:nth-child(${ i * 2 + 3 })` ).after( line[ i ] );
+    }
+}
+
+function portalp_color_map( selector ) {
+    var table = document.querySelectorAll( "#changeArea > div > table > tbody > tr" );
+
+    for( var i = 2; i < table.length - 1; i += 2 ) {
+        var val = table[ i ].innerText != "" ? table[ i ].innerText.split( '\t' )[ selector ] : 0;
+        console.log( val );
+        if( 90 <= val && val < 95 ) {
+            table[ i ].classList.add( "portalp_caution" );
+
+        } else if( 85 <= val && val < 90 ) {
+            table[ i ].classList.add( "portalp_warning" );
+
+        } else if( 80 <= val && val < 85 ) {
+            table[ i ].classList.add( "portalp_alert" );
+
+        } else if( val < 80 ) {
+            table[ i ].classList.add( "portalp_fail" );
+        }
     }
 }
