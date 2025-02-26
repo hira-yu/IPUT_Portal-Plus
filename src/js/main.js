@@ -240,7 +240,7 @@ function portalp_color_map( selector ) {
 
     for( var i = 2; i < table.length - 1; i += 2 ) {
         var val = table[ i ].innerText != "" ? table[ i ].innerText.split( '\t' )[ selector ] : 0;
-        console.log( val );
+
         if( 90 <= val && val < 95 ) {
             table[ i ].classList.add( "portalp_caution" );
 

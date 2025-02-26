@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "IPUT Portal+",
     "description": "IPUTポータルサイトの成績照会を使いやすくします",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "icons": {
       "16": "images/icon16.png",
       "32": "images/icon32.png",
